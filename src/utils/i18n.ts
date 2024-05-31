@@ -9,7 +9,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: "en",
+    fallbackLng: process.env.REACT_APP_DEFAULT_LANG as string,
     debug: false,
     interpolation: {
       escapeValue: false,

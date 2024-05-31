@@ -1,7 +1,9 @@
 import { io } from "socket.io-client";
 
 const URL =
-  process.env.NODE_ENV === "production" ? "" : "http://localhost:3000/api";
+  process.env.NODE_ENV === "production"
+    ? ""
+    : (process.env.REACT_APP_SOCKET_URL as string);
 
 const socket = io(URL);
 
