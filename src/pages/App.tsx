@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import useAuthStore from "@/store/auth";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useTranslation } from "react-i18next";
+import i18n from "@/utils/i18n";
 
 function App() {
   const [count, setCount] = useState(0);
   const token = useAuthStore.useToken();
   const updateAuth = useAuthStore.useUpdateAuth();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (token == "") {
@@ -16,6 +19,10 @@ function App() {
       console.log("token: " + token);
     }
   }, []);
+
+  const changeLang = () => {
+    i18n.changeLanguage(i18n.language === "en" ? "zh" : "en");
+  };
 
   return (
     <>
@@ -31,6 +38,8 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Button onClick={changeLang}>更改语言</Button>
+      <div>{t("title")}</div>
     </>
   );
 }
