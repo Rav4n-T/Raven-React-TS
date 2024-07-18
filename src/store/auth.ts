@@ -26,7 +26,7 @@ const store = create<IAuthState>()(
         })),
     }),
     {
-      name: process.env.REACT_APP_AUTH_KEY as string,
+      name: import.meta.env.REACT_APP_AUTH_KEY as string,
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
         token: state.token,

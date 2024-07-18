@@ -7,6 +7,6 @@ import "@/utils/i18n";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ThemeProvider defaultTheme="dark" storageKey="theme">
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
   </ThemeProvider>,
 );

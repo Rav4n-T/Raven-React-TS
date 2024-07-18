@@ -2,7 +2,7 @@ import useAuthStore from "@/store/auth";
 import axios, { AxiosHeaders } from "axios";
 
 const http = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: import.meta.env.REACT_APP_API_URL,
 });
 
 http.interceptors.request.use(
